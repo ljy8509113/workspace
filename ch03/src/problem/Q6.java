@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Q6 {
 	public static void main(String[] args) {	
 		Scanner in = new Scanner(System.in);
-		System.out.println("¼ıÀÚ ÀÔ·Â(Ãµ¸¸ÀÌÇÏ) : ");
+		System.out.println("ìˆ«ì ì…ë ¥(ì²œë§Œì´í•˜) : ");
 		int num = in.nextInt();
 		int imsi = num;
 		
@@ -21,6 +21,6 @@ public class Q6 {
 		int t = imsi / 10;
 		imsi -= t*10;
 		
-		System.out.println(m+"¸¸"+s+"Ãµ"+h+"¹é"+t+"½Ê"+imsi);
+		System.out.println(m+"ë§Œ"+s+"ì²œ"+h+"ë°±"+t+"ì‹­"+imsi);
 	}
 }

@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Q1 {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		System.out.println("µÎ ½Ç¼ö ÀÔ·Â : ");
+		System.out.println("ë‘ ì‹¤ìˆ˜ ì…ë ¥ : ");
 		double a = in.nextDouble();
 		double b = in.nextDouble();
 		
-		System.out.printf("Æò±Õ %f", (a+b)/2 );
+		System.out.printf("í‰ê·  %f", (a+b)/2 );
 		
 	}
 }

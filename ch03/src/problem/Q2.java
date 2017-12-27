@@ -6,14 +6,14 @@ public class Q2 {
 	public static void main(String[] args) {
 		
 		Scanner in = new Scanner(System.in);
-		System.out.println("µÎ ½Ç¼ö ÀÔ·Â : ");
+		System.out.println("ë‘ ì‹¤ìˆ˜ ì…ë ¥ : ");
 		double a = in.nextDouble();
 		double b = in.nextDouble();
 		
 		int c = (int)a;
 		int d = (int)b;
 		
-		System.out.printf("ÇÕ : %f , Æò±Õ %f", (float)(c+d), (c+d)/2.0 );
+		System.out.printf("í•© : %f , í‰ê·  %f", (float)(c+d), (c+d)/2.0 );
 		
 	}
 }

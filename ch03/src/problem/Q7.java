@@ -7,9 +7,9 @@ public class Q7 {
 	public static void main(String[] args) {
 		
 		Scanner in = new Scanner(System.in);
-		System.out.println("╢ч ют╥б : ");
+		System.out.println("К▀╛ Л·┘К═╔ : ");
 		int month = in.nextInt();
 		
-		System.out.println(month >= 6 ? "го╧щ╠Б ют╢о╢ы." : "╩С╧щ╠Бют╢о╢ы.");  
+		System.out.println(month >= 6 ? "М∙≤К╟≤Й╦╟ Л·┘К▀┬К▀╓." : "Л┐│К╟≤Й╦╟Л·┘К▀┬К▀╓.");  
 	}
 }

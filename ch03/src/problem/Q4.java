@@ -6,12 +6,12 @@ public class Q4 {
 	public static void main(String[] args) {
 		
 		Scanner in = new Scanner(System.in);
-		System.out.println("kg ÀÔ·Â : ");
+		System.out.println("kg ìž…ë ¥ : ");
 		double a = in.nextDouble();
 		
 		double c = a * 0.453592;
 		
-		System.out.printf("ÆÄ¿îµå : %.3f", c );
+		System.out.printf("íŒŒìš´ë“œ : %.3f", c );
 		
 	}
 }

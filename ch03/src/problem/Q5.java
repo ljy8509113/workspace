@@ -6,13 +6,13 @@ public class Q5 {
 	public static void main(String[] args) {
 		
 		Scanner in = new Scanner(System.in);
-		System.out.println("³âµµ ÀÔ·Â : ");
+		System.out.println("ë…„ë„ ì…ë ¥ : ");
 		int year = in.nextInt();
 		
 		if(year%4 == 0 && year % 100 == 0 && year % 400 ==0) {
-			System.out.printf("%d³âÀº À±³âÀÔ´Ï´Ù.", year);	
+			System.out.printf("%dë…„ì€ ìœ¤ë…„ì…ë‹ˆë‹¤.", year);	
 		}else {
-			System.out.printf("%d³âÀº Æò³âÀÔ´Ï´Ù.", year);
+			System.out.printf("%dë…„ì€ í‰ë…„ì…ë‹ˆë‹¤.", year);
 		}	
 		
 	}

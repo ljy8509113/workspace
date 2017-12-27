@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Q10 {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		System.out.println("±İ¾×ÀÔ·Â : ");
+		System.out.println("ê¸ˆì•¡ì…ë ¥ : ");
 		int won = in.nextInt();
 		
 		int [] unit = {50000, 10000, 5000, 1000};
@@ -19,7 +19,7 @@ public class Q10 {
 				a+=1;
 			}
 			
-			resStr += unit[i]+"¿ø±Ç " + a + "°³\n";
+			resStr += unit[i]+"ì›ê¶Œ " + a + "ê°œ\n";
 		}		
 		System.out.println(resStr);				
 	}

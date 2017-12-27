@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Q3 {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		System.out.println("¼·¾¾(c), È­¾¾(F) Áß ÇÑ°¡Áö¿Í ¿Âµµ(½Ç¼ö)¸¦ ÀÔ·Â : ");
+		System.out.println("ì„­ì”¨(c), í™”ì”¨(F) ì¤‘ í•œê°€ì§€ì™€ ì˜¨ë„(ì‹¤ìˆ˜)ë¥¼ ì…ë ¥ : ");
 		String a = in.next();
 		double c = in.nextDouble();
 		
@@ -14,7 +14,7 @@ public class Q3 {
 		}else if(a.toLowerCase().equals("f")) {
 			System.out.printf("F : %f %n", (5.0/9.0)*(c - 32) );
 		}else {
-			System.out.println("ÀÔ·Â¿À·ù" );
+			System.out.println("ì…ë ¥ì˜¤ë¥˜" );
 		}	
 		
 	}

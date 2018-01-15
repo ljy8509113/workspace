@@ -1,6 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/com/koitt/java/board/BoardController.java=UTF-8
+encoding//src/com/koitt/java/board/Common.java=UTF-8
 encoding//src/person/MyException.java=UTF-8
 encoding//src/person/Person.java=UTF-8
 encoding//src/person/PersonController.java=UTF-8
 encoding//src/person/PersonDao.java=UTF-8
+encoding/<project>=UTF-8

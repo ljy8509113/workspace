@@ -9,8 +9,12 @@ public abstract class Complex {
 		this.imaginary = imaginary;
 	}
 	
-	public void add(Complex c1, Complex c2) {
-		
+	public double abs(Complex c) {
+		return Math.sqrt(c.mistake * c.mistake + c.imaginary * c.imaginary);
+	}
+	
+	public void print() {
+		System.out.printf("%f + %fi", mistake, imaginary);
 	}
 	
 }

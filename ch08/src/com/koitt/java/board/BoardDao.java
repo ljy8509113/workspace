@@ -16,33 +16,33 @@ public class BoardDao {
 		map.put(b.getId(), b);
 	}
 	
-	public Map<Integer, Board> selectAll() throws MyException {
+	public Map<Integer, Board> selectAll() throws BoardException {
 		if(map.size() == 0)
-			throw new MyException(Common.MSG_SELECT_FAIL);
+			throw new BoardException(Common.MSG_SELECT_FAIL);
 		else
 			return map;
 	}
 	
-	public Board select(int index) throws MyException{
+	public Board select(int index) throws BoardException{
 		Board item = map.get(index);
 		if(item == null)
-			throw new MyException(Common.MSG_SELECT_FAIL);
+			throw new BoardException(Common.MSG_SELECT_FAIL);
 		else
 			return item;
 	}
 	
-	public void remove(int index) throws MyException{
+	public void delete(int index) throws BoardException{
 		Board item = map.get(index);
 		if(item == null)
-			throw new MyException(Common.MSG_DELETE_FAIL);
+			throw new BoardException(Common.MSG_DELETE_FAIL);
 		else
 			map.remove(index);		
 	}
 	
-	public void update(Board b) throws MyException{
+	public void update(Board b) throws BoardException{
 		Board item = map.get(b.getId());
 		if(item == null)
-			throw new MyException(Common.MSG_MODIFY_FAIL);
+			throw new BoardException(Common.MSG_MODIFY_FAIL);
 		else
 			map.put(b.getId(), b);
 	}

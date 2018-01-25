@@ -2,8 +2,6 @@ package com.koitt.java.board;
 
 import java.util.Map;
 
-import person.MyException;
-
 public class BoardService {
 	private BoardDao dao;
 	private int index = 0;
@@ -12,24 +10,24 @@ public class BoardService {
 		this.dao = new BoardDao();
 	}
 	
-	public void add(Board b) throws MyException {
+	public void add(Board b) throws BoardException {
 		b.setId(++index);
 		dao.insert(b);
 	}
 	
-	public Map<Integer, Board> selectAll() throws MyException {
+	public Map<Integer, Board> selectAll() throws BoardException {
 		return dao.selectAll();
 	}
 	
-	public Board select(int id) throws MyException{
+	public Board select(int id) throws BoardException{
 		return dao.select(id);
 	}
 	
-	public void remove(int id) throws MyException {
-		this.dao.remove(id);
+	public void remove(int id) throws BoardException {
+		this.dao.delete(id);
 	}
 	
-	public void update(Board b) throws MyException{
+	public void modify(Board b) throws BoardException{
 		this.dao.update(b);
 	}
 	

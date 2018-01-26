@@ -1,5 +1,7 @@
 package com.koitt.java.board.service;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,38 +12,30 @@ import com.koitt.java.board.model.Board;
 public class BoardService {
 	
 	private BoardDao dao;
-//	private Integer count;	// ±âº»°ªÀÌ null ÀÌ±â ¶§¹®¿¡ »ı¼ºÀÚ¿¡¼­ 0À¸·Î ÃÊ±âÈ­ÇØ¾ß ÇÑ´Ù.
 	
 	public BoardService() {
 		this.dao = new BoardDao();
-//		this.count = 0;	// 0À¸·Î ÃÊ±âÈ­
+	}
+
+	public void add(Board board) throws BoardException, SQLException {
+		this.dao.insert(board);			// ï¿½ì˜„çŒ·ëš­ë„è­°ï¿½(ArrayList)ï¿½ë¿‰ ï¿½ï¿½ï¿½ì˜£ï¿½ë¸¯æ¹²ï¿½ ï¿½ìï¿½ë¹ daoæ¿¡ï¿½ board åª›ì•¹ê»œç‘œï¿½ ï¿½ìŸ¾ï¿½ë––
 	}
 	
-								// 3.
-	public void add(Board board) throws BoardException {
-		board.setId(this.dao.makeIndex());		// null°ªÀÌ¾ú´ø id°ªÀ» Ã¤¿öÁØ´Ù.
-		board.setRegDate(new Date());	// new Date() ÇÏ´Â ¼ø°£ÀÇ ½Ã°£ÀÌ ÀúÀåµÈ´Ù.
-		this.dao.insert(board);			// ÀÚ·á±¸Á¶(ArrayList)¿¡ ÀúÀåÇÏ±â À§ÇØ dao·Î board °´Ã¼¸¦ Àü´Ş
-	}
-	
-	// 2.
-	public List<Board> read() {
+
+	public List<Board> read() throws SQLException {
 		return dao.selectAll();
 	}
 	
-	// 2.							// 3.
 	public void remove(Board board) throws BoardException {
 		dao.delete(board);
 	}
 	
-	// 2.							// 3.
 	public void modify(Board board) throws BoardException {
-		board.setModiDate(new Date());	// 9.
+		board.setModiDate(new Date());
 		dao.update(board);
 	}
 	
-	// 2.
-	public boolean isExist(Board board) {
-		return dao.isExist(board);
+	public boolean isExist(int no) throws SQLException {
+		return dao.isExist(no);
 	}
 }

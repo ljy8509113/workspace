@@ -1,5 +1,6 @@
 package com.koitt.java.board.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,6 +13,7 @@ public class BoardController {
 	private BoardService service;
 	
 	private Scanner input;
+	List<Board> list = null;
 	
 	public BoardController() {
 		this.service = new BoardService();
@@ -98,18 +100,25 @@ public class BoardController {
 			// 생성한 객체를 service로 전달한다.
 			this.service.add(board);
 			System.out.println("입력완료!");
-		}
-		catch (BoardException e) {
+			
+		} catch (BoardException e) {
 			System.out.println(e.getMessage());
+		} catch (SQLException e) {
+			System.out.println("insert() SQL문 오류");
 		}
 	}
 	
 	// 3.
 	public void menuRead() {
 		System.out.println("=== 게시글 전체목록 출력 ===");
-		List<Board> list = this.service.read();
-		for (Board item : list) {
-			System.out.println(item);
+		
+		try {
+			list = this.service.read();
+			for (Board item : list) {
+				System.out.println(item);
+			}
+		} catch (SQLException e) {
+			System.out.println("selectAll() SQL문 오류");
 		}
 	}
 	
@@ -160,32 +169,43 @@ public class BoardController {
 		}
 		
 		// 4.
-		Board tempBoard = new Board(id, null, null, null, null, null);
-		boolean isExist = this.service.isExist(tempBoard);
-		if (!isExist) {
-			System.out.println("해당 번호의 게시글이 존재하지 않습니다.");
-			return;
-		}
-		
-		System.out.print("글 제목: ");
-		String title = this.input.nextLine();
-		
-		System.out.print("글 내용: ");
-		String content = this.input.nextLine();
-		
-		/*
-		 * writer: 변경되지 않기 때문에 null
-		 * regDate: 변경되지 않기 때문에 null
-		 */														// 8.
-		Board board = new Board(id, title, content, null, null, null);
-		
-		// 4.
+//		Board tempBoard = new Board(id, null, null, null, null, null);
+		boolean isExist;
 		try {
-			this.service.modify(board);
-			System.out.println(board.getId() + "번 글이 수정되었습니다.");
+			isExist = this.service.isExist(id);
+			
+			if (!isExist) {
+				System.out.println("해당 번호의 게시글이 존재하지 않습니다.");
+				return;
+			}
+			
+			System.out.print("글 제목: ");
+			String title = this.input.nextLine();
+			
+			System.out.print("글 내용: ");
+			String content = this.input.nextLine();
+			
+			/*
+			 * writer: 변경되지 않기 때문에 null
+			 * regDate: 변경되지 않기 때문에 null
+			 */														// 8.
+			Board board = new Board(id, title, content, null, null, null);
+			
+			// 4.
+			try {
+				this.service.modify(board);
+				System.out.println(board.getId() + "번 글이 수정되었습니다.");
+			}
+			catch (BoardException e) {
+				System.out.println(e.getMessage());
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+			System.out.println(e1.getMessage());
 		}
-		catch (BoardException e) {
-			System.out.println(e.getMessage());
-		}
+		
+		
+		
 	}
 }

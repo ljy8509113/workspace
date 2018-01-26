@@ -3,21 +3,21 @@ package com.koitt.java.board.model;
 import java.io.Serializable;
 import java.util.Date;
 
-// Java Bean ¸¸µé±â
+// Java Bean ë§Œë“¤ê¸°
 public class Board implements Serializable {
-	private Integer id;		// ±Û ¹øÈ£
-	private String title;	// ±Û Á¦¸ñ
-	private String content;	// ±Û ³»¿ë
-	private String writer;	// ÀÛ¼ºÀÚ
-	private Date regDate;	// ±Û »ı¼ºÀÏ
+	private Integer id;		// ê¸€ ë²ˆí˜¸
+	private String title;	// ê¸€ ì œëª©
+	private String content;	// ê¸€ ë‚´ìš©
+	private String writer;	// ì‘ì„±ì
+	private Date regDate;	// ê¸€ ìƒì„±ì¼
 	
 	// 1.
-	private Date modiDate;	// ±Û ¼öÁ¤ÀÏ 
+	private Date modiDate;	// ê¸€ ìˆ˜ì •ì¼ 
 	
-	// 1. ±âº» »ı¼ºÀÚ
+	// 1. ê¸°ë³¸ ìƒì„±ì
 	public Board() {}
 
-	// 2. »ı¼ºÀÚ (¸ğµç ÇÊµå ÃÊ±âÈ­)														// 2.
+	// 2. ìƒì„±ì (ëª¨ë“  í•„ë“œ ì´ˆê¸°í™”)														// 2.
 	public Board(Integer id, String title, String content, String writer, Date regDate, Date modiDate) {
 		this.id = id;
 		this.title = title;
@@ -90,17 +90,17 @@ public class Board implements Serializable {
 	@Override
 	public boolean equals(Object obj) {
 		
-		// 5-1. °´Ã¼ ÁÖ¼Ò ºñ±³
+		// 5-1. ê°ì²´ ì£¼ì†Œ ë¹„êµ
 		if (this == obj) {
 			return true;
 		}
 		
-		// 5-2. Argument°¡ Board¸¦ »ó¼Ó¹Ş¾Ò´ÂÁö °Ë»ç
+		// 5-2. Argumentê°€ Boardë¥¼ ìƒì†ë°›ì•˜ëŠ”ì§€ ê²€ì‚¬
 		if (!(obj instanceof Board)) {
 			return false;
 		}
 		
-		// 5-3. Argument ´Ù¿îÄ³½ºÆÃ
+		// 5-3. Argument ë‹¤ìš´ìºìŠ¤íŒ…
 		Board b = (Board) obj;
 		if (this.id.equals(b.id)) {
 			return true;

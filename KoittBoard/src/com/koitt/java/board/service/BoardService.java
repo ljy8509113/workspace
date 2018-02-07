@@ -26,8 +26,8 @@ public class BoardService {
 		return dao.selectAll();
 	}
 	
-	public void remove(Board board) throws BoardException {
-		dao.delete(board);
+	public int remove(Board board) throws BoardException {
+		return dao.delete(board);
 	}
 	
 	public void modify(Board board) throws BoardException {

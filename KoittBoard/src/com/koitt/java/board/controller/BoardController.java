@@ -144,8 +144,9 @@ public class BoardController {
 		
 		// 4.
 		try {
-			this.service.remove(board);
-			System.out.println(board.getId() + "번의 게시글이 삭제되었습니다.");
+			if(this.service.remove(board) == 1)
+				System.out.println(board.getId() + "번의 게시글이 삭제되었습니다.");
+			
 		}
 		catch (BoardException e) {
 			System.out.println(e.getMessage());

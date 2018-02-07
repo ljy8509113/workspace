@@ -44,9 +44,7 @@ public class DBManager {
 		pstmt.setInt(1, no);
 		rs = pstmt.executeQuery();
 		
-		if(rs == null) {
-			return null;
-		}else {
+		if(rs.next()) {
 			Board b = new Board(
 					rs.getInt("no"),
 					rs.getString("title"),
@@ -56,6 +54,8 @@ public class DBManager {
 					rs.getDate("modidate")
 					);
 			return b;
+		}else {
+			return null;
 		}
 	}
 	
@@ -98,20 +98,36 @@ public class DBManager {
 		
 	}
 	
-	public void update(Board board) throws SQLException {
+	public int update(Board board) throws SQLException {
 //		update BOARD set title = 'title-', content='contents', modidate=CURDATE() where NO=3;
 		conn = DriverManager.getConnection(URL + DB_NAME, "root", "koitt");
 		StringBuilder sql = new StringBuilder(); //"insert into BOARD(title, content, writer, regdate, modidate) valuses(?,?,?,?,?)";
-		sql.append("update BOARD set title='?', content='?', modidate=CURDATE() ");
+		sql.append("update BOARD set title=?, content=?, modidate=CURDATE() ");
 		sql.append("where no=?");
 		
 		pstmt = conn.prepareStatement(sql.toString());
 		pstmt.setString(1, board.getTitle());
 		pstmt.setString(2, board.getContent());
 		pstmt.setInt(3, board.getId());
-		pstmt.executeUpdate();
+		int result = pstmt.executeUpdate();
 		
 		close();		
+		
+		return result;
+	}
+	
+	public int delete(Board board) throws SQLException {
+		conn = DriverManager.getConnection(URL + DB_NAME, "root", "koitt");
+		String sql = "delete from BOARD where no = ?";
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, board.getId());
+		int result = pstmt.executeUpdate();
+		
+		System.out.println("delete result : " + result);
+		close();
+		
+		return result;
 	}
 	
 	private void close() throws SQLException {
